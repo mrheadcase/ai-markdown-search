@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Search for Markdown (Local & Free)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>AI Search for Markdown (Local & Free)</h1>
+    <p>Drop a .md file below, build the index, then search. Optional AI answers run fully in your browser.</p>
+  </header>
+
+  <section class="loader">
+    <label class="file-drop" id="drop-zone">
+      <input type="file" accept=".md,.markdown" id="file-input" />
+      <span>Drop your Markdown file here or click to choose</span>
+    </label>
+    <div class="inline">
+      <input type="text" id="md-url" placeholder="...or paste a URL to a Markdown file (must allow CORS)" />
+      <button id="fetch-url">Fetch</button>
+    </div>
+    <button id="build-index" disabled>Build index</button>
+    <div id="status"></div>
+  </section>
+
+  <section class="search">
+    <div class="controls">
+      <input id="query" type="text" placeholder="Ask a question or enter a search query..." />
+      <button id="search">Search</button>
+      <label class="checkbox">
+        <input id="use-ai" type="checkbox" />
+        Use in-browser AI answer (WebGPU, big download)
+      </label>
+      <select id="model-id" title="In-browser model">
+        <option value="Phi-3-mini-4k-instruct-q4f32_1-MLC">Phi-3-mini-4k-instruct (lighter)</option>
+        <option value="Llama-3.1-8B-Instruct-q4f32_1-MLC">Llama-3.1 8B Instruct (heavier)</option>
+      </select>
+    </div>
+    <div id="progress"></div>
+    <div id="results"></div>
+  </section>
+
+  <footer>
+    <p>All processing happens locally in your browser. No keys. No server. Free.</p>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
