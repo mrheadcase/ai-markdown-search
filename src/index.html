@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Markdown Q&A</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon_Version4.svg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <img src="../favicon_Version4.svg" alt="Logo" />
+        <h1>AI Markdown Q&A</h1>
+      </div>
+      <p class="tagline">Upload a markdown file and ask questions — all in your browser.</p>
+    </header>
+
+    <main class="container">
+      <section class="card upload-card" id="upload-card">
+        <div id="dropzone" class="dropzone" aria-label="Upload markdown file">
+          <input id="file-input" type="file" accept=".md,.markdown,.txt" />
+          <div class="dropzone-inner">
+            <div class="icon">📄⬆️</div>
+            <h2>Drop your Markdown here</h2>
+            <p>or click to browse .md / .txt files</p>
+          </div>
+        </div>
+        <div class="status" id="status">
+          <div class="status-row"><span>Upload</span><span class="dot" id="status-upload"></span></div>
+          <div class="status-row"><span>Parse</span><span class="dot" id="status-parse"></span></div>
+          <div class="status-row"><span>Download AI models</span><span class="dot" id="status-models"></span></div>
+          <div class="status-row"><span>Index content</span><span class="dot" id="status-index"></span></div>
+          <div class="progress" id="progress" hidden>
+            <div class="bar" id="progress-bar" style="width: 0%"></div>
+          </div>
+          <p class="hint" id="hint">No file loaded</p>
+          <p class="hint"><a id="load-sample" href="#">Load included sample.md</a></p>
+        </div>
+      </section>
+
+      <section class="card qa-card" id="qa-card" hidden>
+        <div class="qa-input">
+          <input id="question" type="text" placeholder="Ask a question about your document..." disabled />
+          <button id="ask-btn" disabled>Ask</button>
+        </div>
+        <div class="answer" id="answer" aria-live="polite"></div>
+        <div class="sources" id="sources"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Runs fully in-browser using open models. Your data never leaves your device.</span>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
