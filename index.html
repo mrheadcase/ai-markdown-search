@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=src/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <link rel="icon" type="image/svg+xml" href="favicon_Version4.svg" />
+    <style>
+      html,body{height:100%}
+      body{display:grid;place-items:center;font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0}
+      .box{max-width:680px;padding:24px;text-align:center}
+      .muted{color:#666}
+      a{color:#2563eb}
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Redirecting…</h1>
+      <p class="muted">If you are not redirected, <a href="src/">click here to open the app</a>.</p>
+    </div>
+    <script>
+      // Ensure redirect even if meta refresh is blocked
+      location.replace('src/');
+    </script>
+  </body>
+</html>
